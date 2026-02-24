@@ -1,0 +1,1261 @@
+/* =========================================
+   PROFILE CSS
+   ========================================= */
+
+/*
+    REMEMBER TO RECOLOR STUFF!!
+    rgba() ----- red green blue ALPHA (alpha is transparency)
+    or use hex codes #ffffff if you won't play with transparency
+
+    This theme uses Red, Black and White as it is my color palette, play around!
+*/
+
+
+/* =========================================
+   BASE PROFILE THEME
+   ========================================= */
+.profile-page {
+  /*recolor as you see fit*/
+  --panel: rgba(18, 18, 28, 0.78);
+  --panel-strong: rgba(14, 14, 22, 0.88);
+  --stroke: rgba(255,255,255,0.12);
+
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.70);
+
+  /*remember to add or change color attributes of light and dark mode*/
+  --accent: #ff3ea5;
+  --glow-cyan: #ffffff;
+  --soft-pink: rgba(199,28,68,0.30)
+
+  color: var(--text);
+}
+/* =========================================
+   SCHEDULE CARD
+   ========================================= */
+
+.profile-page{
+  /*empty spots and categories*/
+  --vs-bg-muted: rgba(255,255,255,0.06) !important;
+
+  /* filled spots*/
+  --vs-blue: #fc0d49 !important;
+
+  --vs-border-lighter: rgba(255,255,255,0.10) !important;
+}
+/* =========================================
+   LOGO ISNTEAD OF DISPLAY NAME
+   ========================================= */
+
+.profile-page.profile-custom-css .profile-display-name {
+  content: url(" PLACE YOUR LOGO PUBLIC IMAGE LINK HERE (you can use imgur or others) ") !important;
+  /*adjust height and width*/
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+    margin-bottom: 0px;
+  /*adjust bottom margin and top margin to add or reduce distance between logo and @ / log and avatar*/
+  margin-bottom: -8% !important;
+  margin-top: -8% !important;
+  /*Glow effect*/
+  filter: drop-shadow(0 0 10px rgba(252, 13, 73, 0.35));
+  /*Pop Setup*/
+  display: block;
+  transition:
+    transform 0.35s cubic-bezier(.2,.8,.2,1),
+    filter 0.35s ease;
+  transform-origin: center;
+}
+/* When the MAIN profile card is hovered */
+.profile-page.profile-custom-css 
+.profile-main-card:hover 
+.profile-display-name{
+
+  transform:
+    translateY(-3px)
+    rotate(-1deg)
+    scale(1.03);
+
+  /*Pop Glow*/
+  filter:
+    drop-shadow(0 0 6px rgba(252, 13, 73, 0.25))
+    drop-shadow(0 0 12px rgba(252, 13, 73, 0.12));
+}
+/* =========================================
+   REPLACE THE STAR AND HEART ICONS
+   ========================================= */
+
+.card-header.starred::before {
+  content: "✖️" !important;
+  background: none !important;
+  filter: none !important;
+  font-size: 12px;
+}
+.card-header.hearted::before {
+  content: "👾" !important;
+  background: none !important;
+  filter: none !important;
+  font-size: 12px;
+}
+/* =========================================
+   COMMENTS - NAME AND LINK RECOLOR
+   ========================================= */
+
+/* Author names */
+.profile-page.profile-custom-css #comments.card .card-body .profile-comment .comment-meta a.comment-author-name{
+  color: #fc0d49 !important;
+}
+
+/* Reply link */
+.profile-page.profile-custom-css #comments.card .card-body .profile-comment .comment-actions a{
+  color: #fc0d49 !important;
+  text-decoration: none !important;
+}
+
+.profile-page.profile-custom-css #comments.card .card-body .profile-comment .comment-actions a:hover{
+  color: #fc0d49 !important;
+  text-shadow: 0 0 6px rgba(252, 13, 73, 0.35);
+  text-decoration: underline !important;
+}
+/* =========================================
+   COMMENTS - REPLY AVATAR CIRCULAR
+   ========================================= */
+
+/* Only inside reply blocks */
+.profile-page #comments .profile-comment div[style*="border-left: 2px"] a > img.user-avatar{
+  border-radius: 999px !important;
+  border: 1px solid rgba(255,255,255,0.14) !important; /* or none if you prefer */
+  overflow: hidden !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+/* =========================================
+   COMMENTS - ALL AVATARS CIRCULAR
+   ========================================= */
+
+/* Border radius = 50% means it will be a circle */
+/* Main comment avatars */
+.profile-page #comments .comment-avatar{
+  border-radius: 50% !important;
+}
+
+/* Reply avatars redundancy just in case */
+.profile-page #comments .profile-comment div[style*="width: 24px"]{
+  border-radius: 50% !important;
+}
+/* =========================================
+   FRIEND AVATARS
+   ========================================= */
+
+.profile-page .friend-avatar{
+  border: none !important;
+  border-radius: 12px !important; /* change to 50% if you want full circle */
+}
+/* =========================================
+   FIX DARK TEXT
+   ========================================= */
+
+.profile-page.profile-custom-css{
+  --vs-text-dark: rgba(255,255,255,0.92) !important;
+  --vs-text-medium: rgba(255,255,255,0.78) !important;
+  --vs-text-light: rgba(255,255,255,0.62) !important;
+}
+.profile-page.profile-custom-css .blurb-content,
+.profile-page.profile-custom-css .blurb-content *{
+  color: rgba(255,255,255,0.92) !important;
+}
+.profile-page.profile-custom-css .interest-content,
+.profile-page.profile-custom-css .interest-content *{
+  color: rgba(255,255,255,0.92) !important;
+}
+
+/* Dim overlay so background art doesn't overpower text */
+.profile-page::before {
+  content:"";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(900px 600px at 15% 20%, rgba(255,62,165,0.15), transparent 60%),
+    radial-gradient(800px 500px at 85% 25%, rgba(65,215,255,0.12), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.55));
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Keep content above overlay */
+.profile-page .container {
+  position: relative;
+  z-index: 1;
+}
+/* =========================================
+   ONLINE STATUS
+   ========================================= */
+
+/*Recolor*/
+.profile-page .profile-online-status{
+  font-size: var(--text-md);
+  color: #38ff00;
+
+/*Glow*/
+  text-shadow:
+    0 0 4px rgba(56,255,0,0.6),
+    0 0 10px rgba(56,255,0,0.35),
+    0 0 18px rgba(56,255,0,0.18);
+
+  margin-bottom: 12px;
+}
+/* =========================================
+   CARDS
+   ========================================= */
+
+.profile-page .card {
+  background: var(--panel);
+  border: 1px solid var(--stroke);
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+/* Header bars */
+.profile-page .card-header {
+  background:
+    linear-gradient(90deg, rgba(255,62,165,0.25), rgba(65,215,255,0.18)),
+    var(--panel-strong);
+  border-bottom: 1px solid var(--stroke);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  font-size: 13px;
+  padding: 8px 12px;
+}
+
+/* Card body */
+.profile-page .card-body {
+  background: transparent;
+  padding: 12px;
+  color: var(--text);
+}
+
+/* =========================================
+   PROFILE CARD
+   ========================================= */
+
+.profile-page .profile-main-card .profile-display-name {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.profile-page .profile-username {
+  color: var(--accent2);
+}
+
+.profile-page .profile-tagline {
+  color: var(--muted);
+  font-style: italic;
+  margin: 6px 0;
+}
+
+/* Avatar glow */
+.profile-page .profile-avatar {
+  border-radius: 50%;
+  border: 2px solid rgba(255,62,165,0.5);
+  box-shadow:
+    0 0 12px rgba(255,62,165,0.35),
+    0 0 25px rgba(65,215,255,0.25);
+}
+/* =========================================
+   PANEL POP WHEN HOVERED
+   ========================================= */
+
+.profile-page .card{
+  will-change: transform;
+  transform: translateZ(0);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+.profile-page .card:hover{
+  transform: translateY(-6px);
+
+/*Glow*/
+  box-shadow:
+    0 20px 45px rgba(0,0,0,0.45),
+    0 0 18px rgba(252, 13, 73, 0.16);
+
+/*Border*/
+  border-color: rgba(252, 13, 73, 0.22) !important;
+}
+/* =========================================
+   BLURB TITLE AND DIVIDER
+   ========================================= */
+
+.profile-page .profile-right .blurb-title{
+  color: #fc0d49 !important;
+  font-weight: 700;
+  font-size: var(--text-md);
+
+  /*Glow*/
+  text-shadow:
+    0 0 4px rgba(252, 13, 73, 0.45),
+    0 0 10px rgba(252, 13, 73, 0.25);
+
+  border-bottom: none !important;
+
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+/* Divider */
+.profile-page .profile-right .blurb-title::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 20%;
+  bottom: 0;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.35),
+    rgba(255,255,255,0.15),
+    transparent
+  );
+
+  box-shadow:
+    0 0 6px rgba(252, 13, 73, 0.35);
+
+  opacity: 0.9;
+}
+/* =========================================
+   BLURB REMOVE SECOND TITLE BUT KEEP DIVIDER
+   ========================================= */
+
+/* Title removal */
+.profile-page .profile-right .blurb-section:nth-of-type(2) .blurb-title{
+  display: none;
+}
+
+/* Add divider */
+.profile-page .profile-right .blurb-section:nth-of-type(2){
+  position: relative;
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+.profile-page .profile-right .blurb-section:nth-of-type(2)::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 20%;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.35),
+    rgba(255,255,255,0.15),
+    transparent
+  );
+
+  box-shadow:
+    0 0 6px rgba(252, 13, 73, 0.35);
+
+  opacity: 0.9;
+}
+/* =========================================
+   HIDE BLURBS SECTION LINKS
+   ========================================= */
+
+.profile-page .profile-right .card .section-links{
+  display: none !important;
+}
+/* =========================================
+   LINKS
+   ========================================= */
+
+.profile-page a {
+  color: var(--accent2);
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.profile-page a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* =========================================
+   FRIEND GRID
+   ========================================= */
+
+.profile-page .friend-item {
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
+  padding: 6px;
+  transition: 0.2s ease;
+}
+
+.profile-page .friend-item:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   COMMENTS SECTION
+   ========================================= */
+
+/* Add comment box */
+.profile-page .add-comment > div > div {
+  background: rgba(0,0,0,0.35) !important;
+  border: 1px solid var(--stroke) !important;
+  border-radius: 10px;
+}
+
+/* Editable textbox */
+.profile-page [contenteditable="true"] {
+  background: transparent !important;
+  color: var(--text) !important;
+}
+
+/* Post comment button */
+.profile-page .action-btn.primary {
+  background: linear-gradient(
+    180deg,
+    rgba(255,62,165,0.35),
+    rgba(255,62,165,0.18)
+  );
+  border: 1px solid rgba(255,62,165,0.45);
+  color: white;
+  border-radius: 10px;
+  transition: 0.2s ease;
+}
+
+.profile-page .action-btn.primary:hover:not(:disabled) {
+  border-color: rgba(65,215,255,0.6);
+  transform: translateY(-1px);
+}
+
+.profile-page .action-btn.primary:disabled {
+  opacity: 0.5;
+}
+/* =========================================
+   ADD COMMENT BOX FIX
+   ========================================= */
+
+.profile-page .add-comment{
+  padding: 12px;
+}
+
+.profile-page .add-comment textarea{
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid var(--stroke);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 10px 12px;
+  outline: none;
+  resize: vertical;
+  min-height: 84px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+}
+
+.profile-page .add-comment textarea::placeholder{
+  color: rgba(255,255,255,0.55);
+}
+
+.profile-page .add-comment textarea:focus{
+  border-color: rgba(65,215,255,0.55);
+  box-shadow: 0 0 0 3px rgba(65,215,255,0.18);
+}
+
+/* Redundancy for post button just in case */
+.profile-page .add-comment .action-btn.primary{
+  margin-top: 10px;
+  padding: 8px 12px;
+}
+
+/* =========================================
+   COMMENTS FROM FRIENDS
+   ========================================= */
+
+/* Makes all comment boxes the same removing the different color every othe comment */
+.profile-page .profile-comment{
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03) !important;
+}
+
+.profile-page .profile-comment:hover{
+  background: rgba(255,255,255,0.06) !important;
+}
+
+/* Avatar circle */
+.profile-page .profile-comment .comment-avatar{
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.22);
+}
+
+/* Metadata */
+.profile-page .profile-comment .comment-author-name{
+  font-weight: 700;
+  color: var(--accent2);
+}
+
+.profile-page .profile-comment .comment-time{
+  color: rgba(255,255,255,0.60);
+  font-size: 11px;
+}
+
+.profile-page .profile-comment .comment-body{
+  margin-top: 4px;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+/* Reply link */
+.profile-page .profile-comment .comment-actions a{
+  display: inline-block;
+  margin-top: 6px;
+  color: rgba(65,215,255,0.9);
+  font-size: 11px;
+}
+
+.profile-page .profile-comment .comment-actions a:hover{
+  color: var(--accent);
+}
+
+/* =========================================
+   COMMENT REPLIES
+   ========================================= */
+
+.profile-page #comments .profile-comment div[style*="border-left: 2px"]{
+
+  background: rgba(252, 13, 73, 0.10) !important;
+
+  border-radius: 10px !important;
+  padding: 10px 12px !important;
+}
+
+/* Author name inside reply */
+.profile-page #comments .profile-comment div[style*="border-left: 2px"] a{
+  color: #fc0d49 !important;
+}
+/* =========================================
+   MORE COMMENT PANEL FIXES
+   ========================================= */
+
+/* The comments card body is sometimes set to white/transparent by the site */
+.profile-page #comments.card .card-body{
+  background: transparent !important;
+  padding: 12px !important;
+}
+
+/* Make the add comment panel a glass block */
+.profile-page #comments .add-comment{
+  background: rgba(255,255,255,0.03) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  border-radius: 12px !important;
+  padding: 12px !important;
+}
+
+/* Override text area background */
+.profile-page #comments .add-comment textarea{
+  background: rgba(0,0,0,0.35) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--stroke) !important;
+}
+
+/* Placeholder text */
+.profile-page #comments .add-comment textarea::placeholder{
+  color: rgba(255,255,255,0.55) !important;
+}
+
+.profile-page #comments .add-comment *{
+  background-color: transparent;
+}
+
+/* Make entire comments card act like one unit */
+.profile-page #comments.card{
+  overflow: hidden; /* ensures inner rounding clips properly */
+  border-radius: 16px;
+}
+
+/* Remove spacing between elements */
+.profile-page #comments .card-body{
+  padding: 0 !important;
+}
+
+/* Top add comment section */
+.profile-page #comments .add-comment{
+  border-radius: 16px 16px 0 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  margin: 0 !important;
+}
+
+/* Remove top border from first comment */
+.profile-page #comments .profile-comment:first-of-type{
+  border-top: none !important;
+}
+
+/* Remove extra margins between comments */
+.profile-page #comments .profile-comment{
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Round bottom of the last comment */
+.profile-page #comments .profile-comment:last-of-type{
+  border-radius: 0 0 16px 16px !important;
+}
+
+/* Ensure hover pop doesn’t break it */
+.profile-page #comments .profile-comment:last-of-type:hover{
+  border-radius: 0 0 16px 16px !important;
+}
+/* =========================================
+   COMMENT DIVIDERS
+   ========================================= */
+
+/* Remove hard lines */
+.profile-page #comments .profile-comment{
+  border-top: none !important;
+  position: relative;
+}
+
+/* Add divider above each comment except the first */
+.profile-page #comments .profile-comment + .profile-comment::before{
+  content:"";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 0;
+
+  height: 2px; /* divider thickness */
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.10),
+      transparent
+    );
+
+  /*Glow*/
+  box-shadow:
+    0 0 10px rgba(65,215,255,0.18),
+    0 0 10px rgba(255,62,165,0.14);
+
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.profile-page #comments .profile-comment{
+  background: rgba(255,255,255,0.025) !important;
+}
+
+.profile-page #comments .profile-comment:hover{
+  background: rgba(255,255,255,0.055) !important;
+}
+
+.profile-page #comments .profile-comment div[style*="border-left: 2px"]{
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.06),
+    0 10px 22px rgba(0,0,0,0.20) !important;
+}
+
+/* =========================================
+   STAT TABLE FIX (Generation, Friends, Comments, etc.)
+   ========================================= */
+
+.profile-page .stats-table td {
+  color: var(--text);
+  padding: 4px 6px;
+}
+/* =========================================
+   MORE COMMENTS FIXES
+   ========================================= */
+
+/* Remove grey border around Add Comment */
+.profile-page #comments .add-comment{
+  border: none !important;
+  background: rgba(255,255,255,0.03) !important;
+  border-radius: 16px 16px 0 0 !important;
+}
+.profile-page #comments *,
+.profile-page #comments .profile-comment,
+.profile-page #comments .card-body{
+  border-top: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+/* Remove default background from comments */
+.profile-page #comments .profile-comment{
+  background: transparent !important;
+  margin: 0 !important;
+  position: relative;
+}
+
+/* =========================================
+   GLOWING DIVIDER FIX
+   ========================================= */
+
+.profile-page #comments .profile-comment + .profile-comment::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+
+  box-shadow:
+    0 0 8px rgba(65,215,255,0.25),
+    0 0 8px rgba(255,62,165,0.20);
+
+  opacity: 0.8;
+}
+
+/* Remove padding gaps */
+.profile-page #comments .card-body{
+  padding: 0 !important;
+}
+
+/* Add inner spacing back safely */
+.profile-page #comments .profile-comment{
+  padding: 14px 16px;
+}
+
+/* Round last comment bottom */
+.profile-page #comments .profile-comment:last-of-type{
+  border-radius: 0 0 16px 16px !important;
+}
+/* =========================================
+   INTEREST TITLES
+   ========================================= */
+
+.profile-page .interest-title {
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* =========================================
+   SMOOTH TRANSITIONS
+   ========================================= */
+
+.profile-page * {
+  transition: background 0.2s ease,
+              color 0.2s ease,
+              border 0.2s ease,
+              box-shadow 0.2s ease;
+}
+/* =========================================
+   PROFILE BUTTONS (Add Friend, Message, Boop)
+   ========================================= */
+
+.profile-page .profile-main-card button{
+  background: linear-gradient(
+    180deg,
+    rgba(255,62,165,0.35),
+    rgba(255,62,165,0.18)
+  ) !important;
+
+  border: 1px solid rgba(255,62,165,0.45) !important;
+
+  /*Text color*/
+  color: white !important;
+
+  border-radius: 12px !important;
+  padding: 8px 14px !important;
+  font-weight: 600;
+
+  /*Glow*/
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.35),
+    0 0 12px rgba(255,62,165,0.25);
+
+  transition: 0.2s ease;
+}
+
+/* Hover effect */
+.profile-page .profile-main-card button:hover{
+  border-color: rgba(65,215,255,0.65) !important;
+
+  /*Glow*/
+  box-shadow:
+    0 8px 22px rgba(0,0,0,0.4),
+    0 0 18px rgba(65,215,255,0.35);
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   MYOSHI LINK
+   ========================================= */
+
+.profile-page .profile-url-box{
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 12px !important;
+  padding: 6px 10px;
+  backdrop-filter: blur(6px);
+}
+
+.profile-page .profile-url-box code{
+  background: transparent !important;
+  color: var(--accent2) !important;
+  font-weight: 600;
+}
+
+/*Glow*/
+.profile-page .profile-url-box{
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.04),
+    0 0 12px rgba(65,215,255,0.15);
+}
+/* =========================================
+   BUTTONS FIX
+   ========================================= */
+
+/* Base button style */
+.profile-page .profile-contact-links .contact-link{
+  display: inline-block;
+  background: linear-gradient(
+    180deg,
+    rgba(255,62,165,0.35),
+    rgba(255,62,165,0.18)
+  ) !important;
+
+  border: 1px solid rgba(255,62,165,0.45) !important;
+  color: white !important;
+
+  border-radius: 12px !important;
+  padding: 8px 14px !important;
+  font-weight: 600;
+  text-decoration: none !important;
+
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.35),
+    0 0 12px rgba(255,62,165,0.25);
+
+  transition: 0.2s ease;
+}
+
+/* Hover */
+.profile-page .profile-contact-links .contact-link:hover{
+  border-color: rgba(65,215,255,0.65) !important;
+  box-shadow:
+    0 8px 22px rgba(0,0,0,0.4),
+    0 0 18px rgba(65,215,255,0.35);
+  transform: translateY(-1px);
+}
+
+/* Boop fix */
+.profile-page .profile-contact-links .boop-link{
+  background: linear-gradient(
+    180deg,
+    rgba(65,215,255,0.35),
+    rgba(65,215,255,0.18)
+  ) !important;
+
+  border-color: rgba(65,215,255,0.5) !important;
+
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.35),
+    0 0 16px rgba(65,215,255,0.35);
+}
+/* =========================================
+   SOCIALS LINKS
+   ========================================= */
+
+.profile-page .social-link-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255,255,255,0.04) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+
+  border-radius: 12px !important;
+  padding: 10px 14px !important;
+
+  text-decoration: none !important;
+  color: var(--text) !important;
+
+  backdrop-filter: blur(8px);
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.30);
+
+  transition: 0.2s ease;
+}
+
+/* Hover glow */
+.profile-page .social-link-item:hover{
+  border-color: rgba(65,215,255,0.5) !important;
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.35),
+    0 0 16px rgba(65,215,255,0.25);
+  transform: translateY(-2px);
+}
+
+/* Platform left label */
+.profile-page .social-link-platform{
+  font-weight: 700;
+  color: var(--accent2) !important;
+}
+
+/* Channel name text */
+.profile-page .social-link-name{
+  color: rgba(255,255,255,0.85) !important;
+}
+
+.profile-page .social-link-item:hover .social-link-platform{
+  color: var(--accent) !important;
+}
+/* =========================================
+   PHOTOS + GROUPS TILES
+   ========================================= */
+
+.profile-page .profile-left .card-body a{
+  display: block;
+  text-decoration: none !important;
+  color: var(--text) !important;
+
+  background: rgba(255,255,255,0.04) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  border-radius: 14px !important;
+
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+
+  box-shadow:
+    0 8px 22px rgba(0,0,0,0.30);
+
+  transition: 0.25s ease;
+}
+
+/* Remove white bottom section */
+.profile-page .profile-left .card-body a > div:last-child,
+.profile-page .profile-left .card-body a span{
+  background: transparent !important;
+  color: rgba(255,255,255,0.85) !important;
+}
+
+/* Tile hover */
+.profile-page .profile-left .card-body a:hover{
+  border-color: rgba(65,215,255,0.55) !important;
+  box-shadow:
+    0 10px 28px rgba(0,0,0,0.40),
+    0 0 18px rgba(65,215,255,0.25);
+  transform: translateY(-4px);
+}
+
+/* Titles inside tiles */
+.profile-page .profile-left .card-body a strong,
+.profile-page .profile-left .card-body a .group-name{
+  color: var(--accent2) !important;
+  font-weight: 700;
+}
+
+/* Subtext */
+.profile-page .profile-left .card-body a small{
+  color: rgba(255,255,255,0.65) !important;
+}
+/* =========================================
+   TOP PROFILE BAR
+   ========================================= */
+
+.profile-page .profile-top-bar{
+  background: rgba(18, 18, 28, 0.72) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 14px !important;
+
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.30);
+
+  padding: 10px 12px !important;
+  margin: 10px 0 18px 0 !important;
+}
+
+/* Breadcrumb container */
+.profile-page .profile-breadcrumb{
+  font-size: 12px;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.2px;
+}
+
+/* Breadcrumb links */
+.profile-page .profile-breadcrumb a{
+  color: var(--accent2) !important;
+  font-weight: 600;
+  text-decoration: none !important;
+}
+
+.profile-page .profile-breadcrumb a:hover{
+  color: var(--accent) !important;
+  text-decoration: underline !important;
+}
+
+/* Current page name */
+.profile-page .profile-breadcrumb strong{
+  color: var(--text);
+  font-weight: 800;
+}
+
+/* Make the " > " separators softer */
+.profile-page .profile-breadcrumb{
+  text-shadow: 0 1px 0 rgba(0,0,0,0.25);
+}
+
+/* =========================================
+   TEXT RECOLOR
+   ========================================= */
+
+/* Display name */
+.profile-page .profile-display-name{
+  color: #ffffff !important;
+}
+
+/* @username */
+.profile-page .profile-username{
+  color: #fc0d49 !important;
+  font-weight: 700;
+}
+
+/* Myoshi URL */
+.profile-page .profile-url-box code{
+  color: #fc0d49 !important;
+  font-weight: 700;
+}
+.profile-page .profile-username,
+.profile-page .profile-url-box code{
+  text-shadow: 0 0 8px rgba(252, 13, 73, 0.35);
+}
+
+/* =========================================
+   CARD HEADER GRADIENT
+   ========================================= */
+
+/*
+  90deg = the angle of the gradient, 90 (|), 180 (-), etc.
+  All the rgba are the sections of the gradient, play around!
+*/
+.profile-page .card-header{
+  background: linear-gradient(
+    90deg,
+    rgba(252, 13, 73, 0.55) 0%,
+    rgba(252, 13, 73, 0.45) 5%,
+    rgba(18, 18, 28, 0.92) 45%,
+    rgba(18, 18, 28, 0.92) 100%
+  ) !important;
+
+  border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+}
+/* =========================================
+   HEADER TEXT
+   ========================================= */
+
+.profile-page .card-header{
+  font-size: 12px !important;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  /*Text color*/
+  color: #ffffff !important;
+
+  /*Glow*/
+  text-shadow:
+    0 0 2px rgba(255,255,255,0.65),
+    0 0 4px rgba(255,255,255,0.25);
+}
+
+/* =========================================
+   INTEREST SECTION FIX
+   ========================================= */
+
+/* Titles */
+.profile-page .interest-title{
+  color: #fc0d49 !important;
+}
+
+/* Body text */
+.profile-page .interest-content{
+  color: #ffffff !important;
+}
+/* =========================================
+   REPLACE DEFAULT ACCENT COLOR
+   ========================================= */
+
+/* Hover glow */
+.profile-page .profile-contact-links .contact-link:hover,
+.profile-page .profile-main-card button:hover{
+  box-shadow:
+    0 0 10px rgba(252, 13, 73, 0.45),
+    0 0 18px rgba(252, 13, 73, 0.25) !important;
+}
+
+/* Focus ring */
+.profile-page .profile-contact-links .contact-link:focus,
+.profile-page .profile-main-card button:focus{
+  box-shadow:
+    0 0 8px rgba(252, 13, 73, 0.45) !important;
+  outline: none !important;
+}
+.profile-page .profile-contact-links .contact-link,
+.profile-page .profile-main-card button{
+  box-shadow: none !important;
+}
+.profile-page .profile-left .card-body a:hover {
+  border-color: rgba(252, 13, 73, 0.55) !important;
+
+  box-shadow:
+    0 10px 28px rgba(0,0,0,0.40),
+    0 0 18px rgba(252, 13, 73, 0.35);
+
+  transform: translateY(-4px);
+}
+/* =========================================
+   PROFILE AVATAR GLOW
+   ========================================= */
+
+.profile-page .profile-avatar{
+  border-radius: 50%;
+  border: 2px solid rgba(252, 13, 73, 0.65);
+
+  box-shadow:
+    0 0 6px rgba(252, 13, 73, 0.45),
+    0 0 18px rgba(252, 13, 73, 0.20),
+    0 12px 28px rgba(0,0,0,0.35);
+}
+/* =========================================
+   MYOSHI LINK GLOW
+   ========================================= */
+
+.profile-page .profile-url-box{
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.04),
+    0 0 10px rgba(252, 13, 73, 0.25),
+    0 0 20px rgba(252, 13, 73, 0.12) !important;
+}
+
+/* =========================================
+   PROFILE MOOD BOX
+   ========================================= */
+
+.profile-page .profile-mood{
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 12px !important;
+  padding: 6px 10px !important;
+
+  backdrop-filter: blur(6px) !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.04),
+    0 0 10px rgba(252, 13, 73, 0.25),
+    0 0 20px rgba(252, 13, 73, 0.12) !important;
+
+  color: #ffffff !important;
+  text-align: center;
+}
+
+/* Mood text inside */
+.profile-page .profile-mood,
+.profile-page .profile-mood *{
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+/* =========================================
+   POST COMMENT BUTTON FIX AGAIN
+   ========================================= */
+
+/* Inactive state */
+.profile-page .action-btn.primary{
+  background: rgba(255,255,255,0.04) !important;
+
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  color: #ffffff !important;
+
+  border-radius: 12px !important;
+  padding: 8px 14px !important;
+  font-weight: 600;
+
+  /* Depth only — no red glow */
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.35) !important;
+
+  transition: 0.2s ease;
+}
+
+/* Hover state */
+.profile-page .action-btn.primary:hover{
+  border-color: #fc0d49 !important;
+
+  box-shadow:
+    0 8px 22px rgba(0,0,0,0.4),
+    0 0 16px rgba(252, 13, 73, 0.45) !important;
+
+  transform: translateY(-1px);
+}
+/* =========================================
+   DETAILS
+   ========================================= */
+/* Center the Stats value column (Gen, Friends, Comments, Languages values) */
+.profile-page .stats-table td:nth-child(2){
+  text-align: center !important;
+}
+
+/* Specifically make Friends/Comments links look different */
+.profile-page .stats-table td:nth-child(2) a{
+  display: inline-block;
+  min-width: 52px;
+  text-align: center !important;
+.profile-page .stats-table td:nth-child(2) a{
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  transition: 0.2s ease;
+}
+
+/* Hover */
+.profile-page .stats-table td:nth-child(2) a:hover{
+  border-color: #fc0d49 !important;
+
+  box-shadow:
+    0 0 12px rgba(252, 13, 73, 0.35) !important;
+}
+
+/* =========================================
+   DARK MODE TEXT COLOR FIX REDUNDANCY
+   ========================================= */
+
+.profile-page.profile-custom-css{
+  --vs-text-dark: rgba(255,255,255,0.92) !important;
+  --vs-text-medium: rgba(255,255,255,0.78) !important;
+  --vs-text-light: rgba(255,255,255,0.62) !important;
+}
+
+.profile-page.profile-custom-css .blurb-content,
+.profile-page.profile-custom-css .blurb-content *{
+  color: rgba(255,255,255,0.92) !important;
+}
+
+.profile-page.profile-custom-css .interest-content,
+.profile-page.profile-custom-css .interest-content *{
+  color: rgba(255,255,255,0.92) !important;
+}
